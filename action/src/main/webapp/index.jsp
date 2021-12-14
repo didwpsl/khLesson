@@ -19,9 +19,13 @@
 		<li><a href="${pageContext.request.contextPath}/el/basics.do?pid=prod123&option=lg&option=red">basics</a></li>
 			<li><a href="${pageContext.request.contextPath}/el/operator.jsp">연산</a></li>
 	</ul>
-	
-	
-	
+	<h2>JSTL</h2>
+	<ul>
+		<li><a href="${pageContext.request.contextPath}/jstl/core.jsp?x=32&y=27">core</a></li>
+		<li><a href="${pageContext.request.contextPath}/jstl/coreForEach.do">core</a></li>
+		<li><a href="${pageContext.request.contextPath}/jstl/fmt.jsp">format</a></li>
+		<li><a href="${pageContext.request.contextPath}/jstl/functions.jsp">functions</a></li>
+	</ul>
 	<h2>JSTL</h2>
 </body>
 </html>
