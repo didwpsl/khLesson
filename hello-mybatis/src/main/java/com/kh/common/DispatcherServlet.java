@@ -34,7 +34,9 @@ public class DispatcherServlet extends HttpServlet {
 	
 	//톰캣에 의해서 객체가 만들어지고 그 때 딱 한번 url properties의 값을 읽어 Map에 세팅한다 
     public DispatcherServlet() throws Exception{
+    	
     	// 0. 의존객체 준비
+    	// 자식 객체를 부모 타입의 변수에 담아 제어 (다형성)
     	IStudentDao studentDao = new StudentDao();
     	IStudentService studentService = new StudentService(studentDao); // 의존 주입
     	
@@ -53,10 +55,10 @@ public class DispatcherServlet extends HttpServlet {
     		
     		//reflection API 
     		Class<?> clz = Class.forName(className); 
-    		//기본 생성자 가져오기 값으로 null 전달 시 기본 생성자가 됨 
-    		Class<?>[] param ={IStudentService.class}; //생성자 인자로 전달될 타입 
+    		//IStudentService 타입을 받는 생성자 
+    		Class<?>[] param ={IStudentService.class}; 
     		Constructor<?> constructor = clz.getDeclaredConstructor(param); 
-    		//생성자의 타입이 nulil > 기본 생성자 
+    		//실제 생성자를 호출할 때 전달할 값들 (객체 리터럴로 선언)
     		Object[] args = {studentService};
     		//객체 만들기 부모 타입으로 제어 
     		AbstractController controller = (AbstractController) constructor.newInstance(args);

@@ -1,5 +1,7 @@
 package com.kh.common;
 
+import static com.kh.common.SqlSessionTemplate.getSqlSession;
+
 import java.io.IOException;
 
 import org.apache.ibatis.io.Resources;

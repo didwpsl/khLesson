@@ -33,7 +33,7 @@ public class StudentTotalCountController extends AbstractController {
 		map.put("totalCount", totalCount);
 		new Gson().toJson(map, response.getWriter());
 		
-		return null; // DispatcherServlet의 이후처리 없음.
+		return null; // DispatcherServlet의 이후처리 없음 
 	}
 	
 	

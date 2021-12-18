@@ -17,7 +17,6 @@ public class StudentMapEnrollController extends AbstractController {
 
 	public StudentMapEnrollController(IStudentService studentService) {
 		this.studentService = studentService;
-		
 	}
 
 	@Override
@@ -27,6 +26,7 @@ public class StudentMapEnrollController extends AbstractController {
 		String name = request.getParameter("name");
 		String tel = request.getParameter("tel");
 		
+		//vo를 Map이 대체 
 		Map<String, Object> studentMap = new HashMap<>();
 		studentMap.put("name", name);
 		studentMap.put("tel", tel);

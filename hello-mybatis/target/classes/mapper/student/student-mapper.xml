@@ -47,7 +47,7 @@
 		where
 			no = #{no}
 	</select>
-	<select id="updateStudent">
+	<update id="updateStudent">
 		update 
 			student 
 		set
@@ -56,13 +56,13 @@
 		where 
 			no = #{no}
 		
-	</select>
-	<select id="deleteStudent">
+	</update>
+	<delete id="deleteStudent">
 		delete 
 			from student 
 		where 
 			no = #{no}
-	</select>
+	</delete>
 	<!-- 
 		resultMap :
 			컬럼명과 vo필드명이 일치하지않는 경우, mybatis의 자동형변환을 이용할 수 없는 경우
