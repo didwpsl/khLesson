@@ -7,9 +7,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kh.common.AbstractController;
+import com.kh.student.model.service.IStudentService;
 
 public class StudentEnrollController extends AbstractController{
-
+	private IStudentService studentService;
+	
+	public StudentEnrollController(IStudentService studentService) {
+		this.studentService = studentService;
+		System.out.println("[StudentEnrollController] studentService = " + studentService);
+	}
 	/*
 	 * 학생 등록 폼 요청 (GET)
 	 * HTML 필요 > forwarding
