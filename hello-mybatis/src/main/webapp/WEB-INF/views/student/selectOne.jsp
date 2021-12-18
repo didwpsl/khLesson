@@ -81,7 +81,7 @@ table.tbl-student tr:last-of-type td:first-child{text-align:center;}
 
 const updateStudent = function() {
 	$.ajax({
-		url: "${pageContext.request.contextPath}/student/studentUpdate.do",
+		url: "${pageContext.request.contextPath}/student/updateStudent.do",
 		method : "POST",
 		data : $(document.studentUpdateFrm).serialize(),
 		dataType : "JSON",
