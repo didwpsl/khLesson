@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="emp">
+	<select id="selectEmpMapList" resultMap="empMap">
+		select
+			*
+		from 
+			emp
+		order by
+			emp_id asc
+	</select>
+
+	<!-- 
+		${} : 식별자(홑따옴표 없이 전달한 값을 그대로 출력)
+		#{} : 값(타입별 형변환)
+	 -->	
+	<select id="search1" resultMap="empMap">
+		select
+			*
+		from
+			emp
+		where
+			${searchType} like '%' || #{searchKeyword} || '%'
+		order by
+			emp_id asc	
+	</select>
+	
+	<resultMap type="map" id="empMap">
+		<id column="emp_id" property="empId"/>
+		<result column="emp_name" property="empName"/>
+		<result column="emp_no" property="empNo"/>
+		<result column="email" property="email"/>
+		<result column="phone" property="phone"/>
+		<result column="dept_code" property="deptCode"/>
+		<result column="job_code" property="jobCode"/>
+		<result column="sal_level" property="salLevel"/>
+		<result column="salary" property="salary"/>
+		<result column="bonus" property="bonus"/>
+		<result column="manager_id" property="managerId"/>
+		<result column="hire_date" property="hireDate"/>
+		<result column="quit_yn" property="quitYn"/>
+			
+	</resultMap>
+</mapper>
+
+

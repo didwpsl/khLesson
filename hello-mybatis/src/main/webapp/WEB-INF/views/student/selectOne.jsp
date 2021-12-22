@@ -119,7 +119,8 @@ const deleteStudent = function(){
 		if(!Number(no)) return;
 		
 		$.ajax({
-			url: "${pageContext.request.contextPath}/student/selectOneStudent.do",
+		//url: "${pageContext.request.contextPath}/student/selectOneStudent.do",
+			url: "${pageContext.request.contextPath}/student/selectOneStudentMap.do",
 			data: {no},	// {no : no}
 			success(res){
 				console.log(res);
