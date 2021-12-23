@@ -85,7 +85,7 @@
 		order by
 			no desc
 	</select>
-	<!-- resultMap은 재사용 가능 -->
+	
 	<select id="selectStudentMapList" resultMap="studentMap">
 		select
 			*

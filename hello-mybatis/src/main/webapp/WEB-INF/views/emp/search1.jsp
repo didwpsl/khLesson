@@ -33,7 +33,7 @@ div#search-container{
 			<select name="searchType" required>
 				<option value="">검색타입</option>
 				<!-- required여부를 판단할 value="" 반드시 있어야함.-->
-				<option value="emp_id" ${'emp_id' eq param.searchType? "selected" : ""}>사번</option>
+				<option value="emp_id" <c:if test="${'emp_id' eq param.searchType}">selected</c:if>>사번</option>
 				<option value="emp_name" ${'emp_name' eq param.searchType? "selected" : ""}>사원명</option>
 				<option value="email" ${'email' eq param.searchType? "selected" : ""}>이메일</option>
 				<option value="phone" ${'phone' eq param.searchType? "selected" : ""}>전화번호</option>
@@ -42,6 +42,7 @@ div#search-container{
 			<input type="submit" value="검색" />
 		</form>
 	</div>
+	
 	<table class="tbl-emp">
 		<thead>
 			<tr>
@@ -70,14 +71,12 @@ div#search-container{
 						<td>${vs.count}</td>
 						<td>${emp.empId}</td>
 						<td>${emp.empName}</td>
-						<!-- el안에서는 + 연산이 숫자끼리만 가능하기 때문에 + "*****" 붙이지 말 것 -->
 						<td>${fn:substring(emp.empNo, 0, 8)}******</td>
 						<td>${emp.email}</td>
 						<td>${emp.phone}</td>
 						<td>${emp.deptCode}</td>
 						<td>${emp.jobCode}</td>
 						<td>${emp.salLevel}</td>
-						<!-- currency 설정시에는 상단에 location을 명시해주는 것이 좋다 -->
 						<td><fmt:formatNumber value="${emp.salary}" type="currency"/></td>
 						<td><fmt:formatNumber value="${emp.bonus}" type="percent"/></td>
 						<td>${emp.managerId}</td>

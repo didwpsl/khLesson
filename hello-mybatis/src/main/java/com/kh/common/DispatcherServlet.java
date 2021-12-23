@@ -21,21 +21,16 @@ import com.kh.student.model.dao.IStudentDao;
 import com.kh.student.model.dao.StudentDao;
 import com.kh.student.model.service.IStudentService;
 import com.kh.student.model.service.StudentService;
-/* 
- * servlet의 생명 주기 : tomcat이 관리 
- * 생성자 호출 - init - service(doGet/doPost) - destroy
- */
+
 @WebServlet("*.do")
 public class DispatcherServlet extends HttpServlet {
-	//url-controller 연결을 담아 둘 Map 
-	//커맨드 패턴 : 하나씩 짝 짓는 것 ex) ctrl + c : copy, ctrl + v : paste 
+
 	private Map<String, AbstractController> urlCommandMap = new HashMap<>();
 	/*
 	 * 생성자에서 url-controller 연결 설정 
 	 * - /student/studentEnroll.do ---> com.kh.student.controller.StudentEnrollController
 	 */
-	
-	//톰캣에 의해서 객체가 만들어지고 그 때 딱 한번 url properties의 값을 읽어 Map에 세팅한다 
+
     public DispatcherServlet() throws Exception{
     	
     	// 0. 의존객체 준비
@@ -81,7 +76,6 @@ public class DispatcherServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//1. 사용자 요청 주소 가져오기 
 		String uri = request.getRequestURI(); //context가 포함된 주소 리턴 
-		// /mybatis/student/studentEnroll.do 
 		String url = uri.replace(request.getContextPath(), "");
 		System.out.println("[DispatcherServlet.doGet] url = " + url);
 		//controller 객체 가져오기 
